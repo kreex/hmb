@@ -26,4 +26,9 @@ class Transaction
         $this->category = new Category($category, $subCategory);
         $this->isIncome = $isIncome;
     }
+
+    public function toString()
+    {
+        return  $this->description . " -" . $this->date . " -" . $this->value . " -" . $this->category->toString() . " -" . $this->isIncome;
+    }
 }
