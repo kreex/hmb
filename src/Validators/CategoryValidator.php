@@ -8,8 +8,19 @@
 
 namespace App\Validators;
 
-
 class CategoryValidator
 {
+    private $categoryList = []; //array of all category pairs
+
+    //Check if this category-subcategory pair exist
+    public function categoryExist($category)
+    {
+        foreach ($this->categoryList as $cat) {
+            if ($category->category == $cat->category && $category->subCategory == $cat->subCategoery)
+                return true;
+            else
+                return false;
+        }
+    }
 
 }
