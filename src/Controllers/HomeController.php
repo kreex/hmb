@@ -6,10 +6,26 @@
  * Time: 01:06
  */
 
-namespace Controllers;
+namespace App\Controllers;
 
 
-class HomeController
+use App\Classes\Category;
+use App\Classes\Transaction;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
+
+
+class HomeController extends Controller
 {
+    /**
+     * @Route("/start/" name="start")
+     */
 
+    public function start()
+    {
+        $cat = new Transaction("dsds", "dsdsd", "grgr", "edvrbt", "eteddd", "reerrererere");
+        return $this->render("views/home.html.twig", [
+            "category" => $cat->toString()
+        ]);
+    }
 }

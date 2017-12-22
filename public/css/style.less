@@ -1,9 +1,13 @@
+@menu_width :150px;
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: @menu_width;
     background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
 }
 
 li a {
@@ -21,4 +25,8 @@ li a.active {
 li a:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+main{
+    margin-left: @menu_width;
 }
