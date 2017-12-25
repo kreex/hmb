@@ -1,7 +1,19 @@
 {% extends "base.html.twig" %}
 {% block body %}
     {% include "menu.html.twig" %}
+
     <main>
-        <p>{{ category }}</p>
+        {% include "add.html.twig" %}
+        <ul>
+            {% for c in cat %}
+                <li>{{ c }}</li>
+                    <ul>
+                        {% for s in sub[c] %}
+                            <li>{{ s }}</li>
+                        {% endfor %}
+                    </ul>
+            {% endfor %}
+        </ul>
+
     </main>
 {% endblock %}

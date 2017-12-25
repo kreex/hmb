@@ -9,6 +9,7 @@
 namespace App\Controllers;
 
 
+use App\Classes\CategoriesList;
 use App\Classes\Category;
 use App\Classes\Transaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,9 +24,11 @@ class HomeController extends Controller
 
     public function start()
     {
-        $cat = new Transaction("dsds", "dsdsd", "grgr", "edvrbt", "eteddd", "reerrererere");
+        $cat = new CategoriesList();
         return $this->render("views/home.html.twig", [
-            "category" => $cat->toString()
+            "date" => date("Y-m-d"),
+            "cat" => $cat->categoryList(),
+            "sub" => $cat->subCategoryList()
         ]);
     }
 }
