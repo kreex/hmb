@@ -1,1 +1,28 @@
-add transacripm
+<form>
+    Data:
+    <input type="date" value="{{ date }}" required="required"/>
+
+    Opis:
+    <input type="text" placeholder="np. kanapka w subway" required="required"/>
+
+    Kategoria:
+    <select name="category" required="required">
+        {% for c in cat %}
+            <option>
+                {{ c }}
+            </option>
+        {% endfor %}
+    </select>
+
+    Podkategoria:
+    <select name="subcategory" required="required" >
+        {% for s in sub[cat[0]] %}
+            <option>
+                {{ s }}
+            </option>
+        {% endfor %}
+    </select>
+
+    Kwota:
+    <input type="number" required="required" placeholder="np. 14,24zl" min="0.01" step="0.01"/>
+</form>
