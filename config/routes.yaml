@@ -5,3 +5,11 @@
 start:
     path:     /home
     controller: App\Controllers\HomeController::start
+
+category_list:
+      path:     /categoryList
+      controller: App\Controllers\GetCategoryListController::getCategoryList
+
+sub_category_list:
+      path:     /subcategoryList
+      controller: App\Controllers\GetCategoryListController::getSubCategoryList

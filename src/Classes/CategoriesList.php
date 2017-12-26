@@ -48,7 +48,7 @@ class CategoriesList
             ["srodki czystosci","kosmetyki","fryzjer","inne"],
 
        "Rozrywka"=>
-            ["kino/teatr","koncert","wydarzenie","hotel","ksiazki","czasopisma","silownia/ basen","karta multisport","inne"],
+            ["kino, teatr","koncert","wydarzenie","hotel","ksiazki","czasopisma","silownia, basen","karta multisport","inne"],
 
        "Samochod"=>
             ["paliwo","naprawy","akcesoria","ubezpieczenie","inne"],
