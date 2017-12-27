@@ -24,11 +24,9 @@ class HomeController extends Controller
 
     public function start()
     {
-        $cat = new CategoriesList();
         return $this->render("views/home.html.twig", [
             "date" => date("Y-m-d"),
-            "cat" => $cat->categoryList(),
-            "sub" => $cat->subCategoryList()
+
         ]);
     }
 }

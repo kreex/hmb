@@ -15,7 +15,7 @@ class CategoriesList
     public function categoryList()
     {
         $categoryList = [
-
+            "Inne",
             "Dom",
             "Jedzenie",
             "Zdrowie",
@@ -32,10 +32,13 @@ class CategoriesList
 
         return $categoryList;
     }
-    public function subCategoryList()
+    public function subCategoryList($category)
     {
         $subCategoryList = [
-        "Dom"=>
+        "Inne"=>
+            ["inne"],
+
+            "Dom"=>
             ["woda","prad","gaz","czynsz","remonty","wyposazenie","inne"],
 
        "Jedzenie"=>
@@ -71,7 +74,9 @@ class CategoriesList
        "Zarobki"=>
             ["pensja","premia","sprzedaz","odsetki","inne"]
     ];
-
+        if($category != "all"){
+            $subCategoryList = $subCategoryList[$category];
+        }
         return $subCategoryList;
     }
 

@@ -6,10 +6,7 @@ start:
     path:     /home
     controller: App\Controllers\HomeController::start
 
-category_list:
-      path:     /categoryList
-      controller: App\Controllers\GetCategoryListController::getCategoryList
 
-sub_category_list:
-      path:     /subcategoryList
-      controller: App\Controllers\GetCategoryListController::getSubCategoryList
+category_lists:
+    path:     /categoryLists/{list_name}/{cat}
+    controller: App\Controllers\GetCategoryListController::getCategoryLists

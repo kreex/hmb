@@ -17,20 +17,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class GetCategoryListController extends Controller
 {
     /**
-     * @Route("/categoryList" name="category_list")
+     * @Route("/categoryLists/{list_name}/{cat}/" name="category_lists")
      */
-    public function getCategoryList()
+    public function getCategoryLists($list_name, $cat)
     {
         $list = new CategoriesList();
-        return new Response(json_encode($list->categoryList()));
+        switch ($list_name){
+            case "main": return new Response(json_encode($list->categoryList()));  break;
+            case "all_sub": return new Response(json_encode($list->subCategoryList($cat))); break;
+            case "spec":return new Response(json_encode($list->subcategoryList($cat))); break;
+            default : return new Response("Nie wybrano żadnej kategori"); break;
+        }
     }
 
-    /**
-     * @Route("/subcategoryList" name="sub_category_list")
-     */
-    public function getSubCategoryList()
-    {
-        $list = new CategoriesList();
-        return new Response(json_encode($list->subCategoryList()));
-    }
+
 }
