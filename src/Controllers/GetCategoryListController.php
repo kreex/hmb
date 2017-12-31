@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GetCategoryListController extends Controller
 {
     /**
-     * @Route("/categoryLists/{list_name}/{cat}/" name="category_lists")
+     * @Route("/categoryLists/{list_name}/{cat}/" ,name="category_lists")
      */
     public function getCategoryLists($list_name, $cat)
     {

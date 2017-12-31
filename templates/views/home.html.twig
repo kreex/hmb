@@ -1,11 +1,11 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    {% include "menu.html.twig" %}
+    {% include "parts/menu.html.twig" %}
 
     <main>
-        {% include "add.html.twig" %}
-    <div id="category_picker">
-      ds
-    </div>
+        {% include "parts/summary.html.twig" %}
+        {% include "parts/transactions.html.twig" %}
+        {% include "parts/add.html.twig" %}
+
     </main>
 {% endblock %}

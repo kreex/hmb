@@ -2,11 +2,3 @@
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
 
-start:
-    path:     /home
-    controller: App\Controllers\HomeController::start
-
-
-category_lists:
-    path:     /categoryLists/{list_name}/{cat}
-    controller: App\Controllers\GetCategoryListController::getCategoryLists

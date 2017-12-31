@@ -1,6 +1,4 @@
 var todo = [
-    "add category picker",
-    "special window for transaction adding",
     "set temporary color pallet"
 ];
 

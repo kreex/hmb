@@ -37,6 +37,9 @@ $(document).ready(function(){
                 subctgr.prop("disabled", false);
 
             });
+        }else {
+            subctgr.html("<option>inne</option>");
+            subctgr.prop("disabled", true);
         }
     });
 

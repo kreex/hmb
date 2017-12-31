@@ -8,10 +8,6 @@
 
 namespace App\Controllers;
 
-
-use App\Classes\CategoriesList;
-use App\Classes\Category;
-use App\Classes\Transaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends Controller
 {
     /**
-     * @Route("/start/" name="start")
+     * @Route("/home", name="start")
      */
 
     public function start()

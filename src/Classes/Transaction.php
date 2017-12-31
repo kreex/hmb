@@ -27,6 +27,10 @@ class Transaction
         $this->isIncome = $isIncome;
     }
 
+    public function addTransaction()
+    {
+
+    }
     public function toString()
     {
         return  $this->description . " -" . $this->date . " -" . $this->value . " -" . $this->category->toString() . " -" . $this->isIncome;
