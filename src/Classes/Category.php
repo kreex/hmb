@@ -36,8 +36,4 @@ class Category
         return $this->subCategory;
     }
 
-    public function toString()
-    {
-        return "Category: " . $this->category . ", subcategory: " . $this->subCategory;
-    }
 }

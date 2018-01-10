@@ -26,7 +26,8 @@ class TransactionsController
      * @Route("/getTransactions/{elements_number}", name="get_transactions")
      */
     // return last "n" transactions
-    public function getTransactions($elements_number) //number of elements to get from list
+    // $elements_number - number of elements to get from list
+    public function getTransactions($elements_number)
     {
         $transactions_reversed = array_reverse($this->transaction_list);
         $transactions_to_return = [];
@@ -42,7 +43,13 @@ class TransactionsController
      */
     public function addTransaction()
     {
-        return new Response("add") ;
+        if(false){
+            return new Response("add");
+        }
+        return new Response("false") ;
+
+
+
     }
 
     /**

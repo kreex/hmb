@@ -23,8 +23,17 @@ class GetCategoryListController extends Controller
     {
         $list = new CategoriesList();
         switch ($list_name){
+
+            // Return category list
+
             case "main": return new Response(json_encode($list->categoryList()));  break;
+
+            //Return subcategory list
+
             case "all_sub": return new Response(json_encode($list->subCategoryList($cat))); break;
+
+            //Return subcategory list for specific main category
+
             case "spec":return new Response(json_encode($list->subcategoryList($cat))); break;
             default : return new Response("Nie wybrano żadnej kategori"); break;
         }

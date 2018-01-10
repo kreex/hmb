@@ -31,8 +31,4 @@ class Transaction
     {
 
     }
-    public function toString()
-    {
-        return  $this->description . " -" . $this->date . " -" . $this->value . " -" . $this->category->toString() . " -" . $this->isIncome;
-    }
 }

@@ -11,6 +11,9 @@ namespace App\Classes;
 
 class CategoriesList
 {
+    /*
+     * Class store all categories and subcategories
+     */
 
     public function categoryList()
     {
