@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
+    //GET TRANSACTIONS FORM THE SERVER AND SHOW THEM IN TABLE
+
     $.get("http://localhost:8000/getTransactions/3", function(data) {
         var transactions = $.parseJSON(data);
-        console.log();
         var table_content_string = "";
         transactions.forEach(function (value) {
 
@@ -12,6 +13,3 @@ $(document).ready(function () {
     });
 
 });
-
-
-//"date":"2017-12-30","desc":"szamka sub","category":"Jedzenie","subcategory":"miasto","value":10.99,"
