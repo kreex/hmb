@@ -10,17 +10,35 @@ namespace App\Validators;
 
 class CategoryValidator
 {
-    private $categoryList = []; //array of all category pairs
+    private $categoryList = []; //array of all categories
+    private $subcategory_list = []; //array of all subcategories
 
-    //Check if this category-subcategory pair exist
-    public function categoryExist($category)
+    private $errors = [];
+    //Check if this category-subcategory are valid
+    public function categoryExist($category, $subcategory)
     {
-        foreach ($this->categoryList as $cat) {
-            if ($category->category == $cat->category && $category->subCategory == $cat->subCategoery)
-                return true;
+        foreach ($this->categoryList as $ctg) {
+            if ($category === $ctg)
+            {
+                foreach ($this->subcategory_list[$category] as $sctg){
+                    if($subcategory === $sctg)
+                        return true;
+                    else{
+                        array_push($this->errors,"subcategory dose not exist");
+                        return false;
+                    }
+
+                }
+            }
             else
+                array_push($this->errors,"category does not exist");
                 return false;
         }
+    }
+
+    public function showErrors()
+    {
+        return $this->errors;
     }
 
 }

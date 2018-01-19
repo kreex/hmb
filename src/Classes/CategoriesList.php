@@ -15,6 +15,7 @@ class CategoriesList
      * Class store all categories and subcategories
      */
 
+
     public function categoryList()
     {
         $categoryList = [
@@ -35,6 +36,13 @@ class CategoriesList
 
         return $categoryList;
     }
+
+    public function incomeCategory()
+    {
+        $ctgs = $this->categoryList();
+        return end($ctgs);
+    }
+
     public function subCategoryList($category)
     {
         $subCategoryList = [

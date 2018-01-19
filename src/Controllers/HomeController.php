@@ -27,4 +27,15 @@ class HomeController extends Controller
 
         ]);
     }
+
+    /**
+     * @Route("test", name="test")
+     */
+    public function test()
+    {
+        $tests = $this->getDoctrine()->getRepository("App:Transaction")->findAll();
+        return $this->render("views/test.html.twig", [
+            "t" => $tests
+        ]);
+    }
 }

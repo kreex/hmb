@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% include "parts/menu.html.twig" %}
+
+    <main>
+        <ul>
+            {% for row in t %}
+                <li>{{ row.description }} {{ row.value }}</li>
+            {% endfor %}
+        </ul>
+
+    </main>
+{% endblock %}
