@@ -7,7 +7,7 @@ $(document).ready(function () {
             var table_content_string = "";
             transactions.forEach(function (value) {
 
-                table_content_string += "<tr><td>" + value["date"] + "</td>" + "<td>" + value["description"] + "</td>"  + "<td>" + value["category"] + "</td>" + "<td>" + value["subcategory"] + "</td>" + "<td>" + value["value"] + "</td></tr>";
+                table_content_string += "<tr><td>" + value["date"] + "</td>" + "<td>" + value["description"] + "</td>"  + "<td>" + value["category"] + "</td>" + "<td>" + value["subcategory"] + "</td>" + "<td>" + value["value"] + "</td><td><button class='close'>&times;</button></td></tr>";
             });
             $("#transactions_body").html(table_content_string);
         });
