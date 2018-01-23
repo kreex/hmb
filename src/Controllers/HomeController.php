@@ -34,6 +34,7 @@ class HomeController extends Controller
     public function test()
     {
         $tests = $this->getDoctrine()->getRepository("App:Transaction")->findAll();
+        //$tests = date("Y-m");
         return $this->render("views/test.html.twig", [
             "t" => $tests
         ]);

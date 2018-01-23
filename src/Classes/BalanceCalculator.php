@@ -20,14 +20,14 @@ class BalanceCalculator
           "balance" => 0
         ];
         foreach ($transactions as $transaction) {
-            if($transaction["is_income"])
-                $balance["income"] += $transaction["value"];
+            if($transaction->getIncome())
+                $balance["income"] += $transaction->getValue();
             else
-                $balance["outcome"] += $transaction["value"];
+                $balance["outcome"] += $transaction->getValue();
         }
 
         $balance["balance"] = $balance["income"] - $balance["outcome"];
 
-        return $balance["balance"];
+        return $balance;
     }
 }

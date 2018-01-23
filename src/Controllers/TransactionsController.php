@@ -18,33 +18,28 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class TransactionsController extends Controller
 {
-    private $balance;
-    private $transaction_list;
 
-    public function __construct()
-    {
-        $this->balance = new BalanceCalculator();
-    }
     /**
-     * @Route("/getTransactions/{elements_number}", name="get_transactions")
+     * @Route("/getTransactions/", name="get_transactions")
      */
     // return last "n" transactions
     // $elements_number - number of elements to get from list
-    public function getTransactions($elements_number)
+    public function getTransactions()
     {
-        $this->transaction_list = $this->getDoctrine()->getRepository("App:Transaction")->findAll();
-        $transactions_reversed = array_reverse($this->transaction_list);
+        $transaction_list = $this->getDoctrine()->getRepository("App:Transaction")->findBy(["month"=> date("Y-m")]);
+        $transactions_reversed = array_reverse($transaction_list);
         $transactions_to_return = [];
 
-        for($i = 0; $i < $elements_number; $i++) {
+        foreach($transactions_reversed as $trn) {
             array_push($transactions_to_return,
                 [
-                    "date" => $transactions_reversed[$i]->getDate(),
-                    "description" => $transactions_reversed[$i]->getDescription(),
-                    "category" => $transactions_reversed[$i]->getCategory(),
-                    "subcategory" => $transactions_reversed[$i]->getSubcategory(),
-                    "value" => $transactions_reversed[$i]->getValue(),
-                    "income" => $transactions_reversed[$i]->getIncome()
+                    "id" => $trn->getId(),
+                    "date" => $trn->getDate(),
+                    "description" => $trn->getDescription(),
+                    "category" => $trn->getCategory(),
+                    "subcategory" => $trn->getSubcategory(),
+                    "value" => $trn->getValue(),
+                    "income" => $trn->getIncome()
 
                 ]);
         }
@@ -66,7 +61,8 @@ class TransactionsController extends Controller
         $transaction->setCategory($_POST["ctg"]);
         $transaction->setSubcategory($_POST["sctg"]);
         $transaction->setValue($_POST["value"]);
-        $transaction->setIncome(false);
+        $transaction->setIncome();
+        $transaction->setMonth(date("Y-m"));
 
         $errors = $validator->validate($transaction);
 
@@ -83,11 +79,11 @@ class TransactionsController extends Controller
 
     }
     /**
-     * @Route("/deleteTransaction", name="delete_transaction")
+     * @Route("/deleteTransaction/", name="delete_transaction")
      */
     public function deleteTransaction()
     {
-        return new Response("delete") ;
+        return new Response("delete transaction with id: "  . $_POST["id"]);
     }
 
     /**
@@ -95,6 +91,17 @@ class TransactionsController extends Controller
      */
     public function editTransaction()
     {
-        return new Response("edit") ;
+        return new Response("edit transaction with id: "  . $_POST["id"]);
+    }
+
+    /**
+     * @Route("/getBalance", name="getBalance")
+     */
+    public function getBalance()
+    {
+        $balance = new BalanceCalculator();
+        $transaction_list = $this->getDoctrine()->getRepository("App:Transaction")->findBy(["month"=> date("Y-m")]);
+        return new Response(json_encode($balance->CalcBalance($transaction_list)));
+
     }
 }

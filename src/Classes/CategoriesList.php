@@ -40,7 +40,7 @@ class CategoriesList
     public function incomeCategory()
     {
         $ctgs = $this->categoryList();
-        return end($ctgs);
+        return "Zarobki";
     }
 
     public function subCategoryList($category)

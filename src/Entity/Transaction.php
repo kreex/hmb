@@ -67,6 +67,28 @@ class Transaction
      */
     private $income ;
 
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $month;
+
+    /**
+     * @return mixed
+     */
+    public function getMonth()
+    {
+        return $this->month;
+    }
+
+    /**
+     * @param mixed $month
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+    }
+
     public function isIncome()
     {
         $ctgs = new CategoriesList();
@@ -171,11 +193,11 @@ class Transaction
     }
 
     /**
-     * @param mixed $income
+     * @param mixed
      */
-    public function setIncome($income)
+    public function setIncome()
     {
-        $this->income = $income;
+        $this->isIncome();
     }
 
 
